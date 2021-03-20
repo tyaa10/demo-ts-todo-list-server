@@ -1,8 +1,11 @@
 import express from 'express'
+import cors from 'cors'
 import repository from './InMemoryRepository'
 import TodoItemModel from './TodoItemModel'
 
 const app = express()
+
+app.use((req, res, next) => { next(); }, cors({maxAge: 84600}))
 app.use('/api', express.json({'limit':'10mb'}))
 
 app.route('/api/items')
