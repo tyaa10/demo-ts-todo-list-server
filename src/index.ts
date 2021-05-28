@@ -15,10 +15,15 @@ app.route('/api/items')
   })
   .post(function (req, res) {
     const newItem = req.body
-    repository.todoList.push(
+    const newServerTodoItemModel =
       new TodoItemModel(newItem.title, newItem.description, newItem.date)
+    repository.todoList.push(newServerTodoItemModel)
+    res.status(201).json(
+      {
+        "message": "a new todo item was created",
+        "data": {"id": newServerTodoItemModel.id}
+      }
     )
-    res.status(201).json({"message": "a new todo item was created"})
   })
 
 app.route('/api/items/:id')
