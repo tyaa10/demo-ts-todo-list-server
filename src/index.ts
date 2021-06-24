@@ -10,8 +10,7 @@ app.use('/api', express.json({'limit':'10mb'}))
 
 app.route('/api/items')
   .get(function (req, res) {
-    res.send(`{"data": ${JSON.stringify(repository.todoList.sort((item1, item2) => item2.id - item1.id))}}`)
-    // res.status(500).json({"error": error})
+    res.send(`{"data": ${JSON.stringify(repository.todoList)}}`)
   })
   .post(function (req, res) {
     const newItem = req.body
