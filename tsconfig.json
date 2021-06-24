@@ -2,6 +2,7 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "outDir": "dist",
+    "skipLibCheck": true,
     "baseUrl": "."
   }
 }
